@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  web:
+    build:
+      context: ./web
+    ports:
+      - "5009:5004"
+    env_file:
+      - .env
+    depends_on:
+      - redis
+    restart: always
+
+  redis:
+    build:
+      context: ./redis
+    restart: always
