@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   web:
     build:
@@ -15,3 +16,13 @@ services:
     build:
       context: ./redis
     restart: always
+
+  test:
+    build:
+      context: ./web
+    command: pytest tests/
+    volumes:
+      - .:/app
+    depends_on:
+      - web
+    restart: "no"
