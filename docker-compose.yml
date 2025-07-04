@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   web:
     build:
@@ -20,7 +18,7 @@ services:
   test:
     build:
       context: ./web
-    command: pytest tests/
+    command: pytest tests
     volumes:
       - .:/app
     depends_on:
